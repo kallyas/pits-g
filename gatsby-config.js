@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `pits`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: `pits inc`,
+    siteUrl: `https://pitsr.com`
   },
   plugins: ["gatsby-plugin-styled-components", "gatsby-plugin-image", "gatsby-plugin-react-helmet", "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',
@@ -22,18 +22,5 @@ module.exports = {
       "path": "./src/pages/"
     },
     __key: "pages"
-  }, {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      "name": "style",
-      "path": "./style/"
-    },
-    __key: "style"
-  }, {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      "name": "ui",
-      "path": "./src/ui/"
-    },
   }]
 };
