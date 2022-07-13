@@ -2,7 +2,7 @@
 
 import { ThemeProvider, css } from "@emotion/react/macro";
 import styled from '@emotion/styled/macro'
-import { Link, graphql, useStaticQuery, withPrefix } from "gatsby";
+import { Link, withPrefix } from "gatsby";
 import * as React from "react";
 import { Helmet } from "react-helmet";
 
@@ -19,6 +19,7 @@ import { LayoutRoot } from "./LayoutRoot";
 import * as Navigation from "../../ui/navigation/dropdown"
 import * as NavigationH from "../../ui/navigation/header"
 import { useCloseOnBlurEffect } from "../../ui/hooks/useCloseOnBlurEffect";
+import { Global } from "../../ui/logos";
 
 export const LayoutGlobal = ({
   children,
@@ -87,13 +88,13 @@ const GlobalHeader = ({ announcement, openPositions, background }) => {
         logoWidth={["75px", "85px"]}
         logo={
           <Link to="/">
-            {/* <StyledLogo open={isOpen} /> */}
+            <StyledLogo open={isOpen} />
           </Link>
         }
         secondaryLinks={<GlobalLoginTrigger />}
         cta={
           <Navigation.DropdownBaseTrigger item="global-products">
-            <Button.Primary reducedDevicePadding>Try Toggl</Button.Primary>
+            <Button.Primary reducedDevicePadding>Try Pits</Button.Primary>
           </Navigation.DropdownBaseTrigger>
         }
       >
@@ -103,24 +104,24 @@ const GlobalHeader = ({ announcement, openPositions, background }) => {
   );
 };
 
-// const StyledLogo = styled(Global)`
-//   fill: ${colors.darkPurple};
+const StyledLogo = styled(Global)`
+  fill: ${colors.darkPurple};
 
-//   ${media.mq[1]} {
-//     fill: ${({ open }) => (open ? colors.darkPurple : colors.yellow)};
-//   }
-// `;
+  ${media.mq[1]} {
+    fill: ${({ open }) => (open ? colors.darkPurple : colors.yellow)};
+  }
+`;
 
 const IconGlobal = () => (
   <div
     css={css`
-      width: 85px;
+      width: 100px;
       svg {
         width: 100%;
       }
     `}
   >
-    {/* <Global /> */}
+    <Global />
   </div>
 );
 

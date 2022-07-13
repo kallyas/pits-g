@@ -16,6 +16,7 @@ import ImageText from "../ui/card/ImageText";
 import { SectionBlock } from "../ui/section/SectionBlock";
 import { LayoutGlobal } from "../components/layouts/LayoutGlobal";
 import { Carousel } from "../ui/carousel/Carousel";
+import { Hire, Plan, Track } from "../ui/logos";
 
 // markup
 const IndexPage = () => {
@@ -32,7 +33,7 @@ const IndexPage = () => {
         <ProductCardGrid>
           <HeroTitle>
             <text.H1 color={colors.yellow}>
-              Meet Toggl. Three products;{" "}
+              Meet P I T S. Three products;{" "}
               <Link to="/mission/">
                 <H1Rotalic>One</H1Rotalic> mission
               </Link>
@@ -291,7 +292,7 @@ const IndexPage = () => {
 };
 
 const BrandDetails = () => {
-  const [selectedTab, selectTab] = React.useState("track")
+  const [selectedTab, selectTab] = React.useState("track");
   const activateTrack = React.useCallback(() => selectTab("track"), []);
   const activatePlan = React.useCallback(() => selectTab("plan"), []);
   const activateHire = React.useCallback(() => selectTab("hire"), []);
@@ -319,7 +320,9 @@ const BrandDetails = () => {
           <TabItem>
             <TabItemText>
               <LogoWrapper>
-                <Link to={"/track/"}>{/* <Track /> */}</Link>
+                <Link to={"/track/"}>
+                  <Track />
+                </Link>
               </LogoWrapper>
               <text.P2 color={colors.darkPurple}>
                 Voted the top time tracking software for individuals and
@@ -381,7 +384,9 @@ const BrandDetails = () => {
           <TabItem>
             <TabItemText>
               <LogoWrapper>
-                <Link to={"/plan/"}>{/* <Plan /> */}</Link>
+                <Link to={"/plan/"}>
+                  <Plan />
+                </Link>
               </LogoWrapper>
               <text.P2 color={colors.darkPurple}>
                 Simple, visual timelines for project teams to plan and get work
@@ -446,7 +451,9 @@ const BrandDetails = () => {
           <TabItem>
             <TabItemText>
               <LogoWrapper>
-                <Link to={"/hire/"}>{/* <Hire /> */}</Link>
+                <Link to={"/hire/"}>
+                  <Hire />
+                </Link>
               </LogoWrapper>
               <text.P2 color={colors.darkPurple}>
                 Laser-focused skills testing to help you hire smarter, faster,

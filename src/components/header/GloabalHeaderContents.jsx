@@ -16,7 +16,7 @@ export function GlobalHeaderContents({
       <GlobalProductsDropdown />
       <GlobalLogin />
       <li>
-        <a href="https://toggl.com/blog/" rel="noreferrer" target="_blank">
+        <a href="/blog/" rel="noreferrer" target="_blank">
           Blog
         </a>
       </li>
@@ -25,7 +25,7 @@ export function GlobalHeaderContents({
       </li>
       <li>
         <LastLink to="/jobs/">
-          Working at Toggl
+          Working at Pits
           {openPositions && <Badge.Wrapper>We're hiring</Badge.Wrapper>}
         </LastLink>
       </li>

@@ -120,7 +120,7 @@ export const H1 = styled.h1`
   ${(p) => (p.size ? headingStyles[p.size] : heading1)}
 `
 
-export const H2 = styled.h2`
+export const H2= styled.h2`
   ${withColor}
   ${heading2};
 `
@@ -139,6 +139,7 @@ export const H5 = styled.h5`
   ${withColor}
   ${heading5};
 `
+
 
 export const P1 = styled.p`
   ${withColor}
