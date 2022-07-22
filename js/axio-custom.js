@@ -1,32 +1,3 @@
-// ------------------------------------------------
-// Project Name: Axio Coming Soon Template
-// Project Description: Axio - awesome coming soon template to kick-start your project
-// Tags: mix_design, axio, coming soon, under construction, template, coming soon page, html5, css3
-// Version: 3.0.0
-// Build Date: April 2017
-// Last Update: September 2021
-// This product is available exclusively on Themeforest
-// Author: mix_design
-// Author URI: http://mixdesign.club
-// File name: axio-custom.js
-// ------------------------------------------------
-
-// ------------------------------------------------
-// Table of Contents
-// ------------------------------------------------
-//
-//  1. Loader & Main Section Loading Animation
-//  2. YTPlayer Settings
-//  3. Vegas Settings
-//  4. KBW-Countdown Settings
-//  5. Mailchimp Notify Form
-//  6. Say Hello Form
-//  7. ParticlesJS Backgrounds
-//
-// ------------------------------------------------
-// Table of Contents End
-// ------------------------------------------------
-
 $(window).on("load", function() {
 
   "use strict";
@@ -265,24 +236,51 @@ $(function() {
   // --------------------------------------------- //
   // Contact Form Start
   // --------------------------------------------- //
-  $("#contact-form").submit(function() { //Change
-		var th = $(this);
-		$.ajax({
-			type: "POST",
-			url: "mail.php", //Change
-			data: th.serialize()
-		}).done(function() {
-      $('.contact').find('.form').addClass('is-hidden');
-      $('.contact').find('.reply-group').addClass('is-visible');
-			setTimeout(function() {
-				// Done Functions
-        $('.contact').find('.reply-group').removeClass('is-visible');
-        $('.contact').find('.form').delay(300).removeClass('is-hidden');
-				th.trigger("reset");
-			}, 5000);
-		});
-		return false;
-	});
+  const contact_form = document.querySelector('#contact-form');
+  if(contact_form){
+    contact_form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(contact_form);
+      emailjs.sendForm("service_j09xasf", "template_vi64q79", contact_form).then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+        $('.contact').find('.form').addClass('is-hidden');
+        $('.contact').find('.reply-group').addClass('is-visible');
+        setTimeout(function() {
+          // Done Functions
+          $('.contact').find('.reply-group').removeClass('is-visible');
+          $('.contact').find('.form').removeClass('is-hidden');
+          contact_form.reset();
+        }, 5000);
+      })
+      .catch(function(error) {
+        console.log('FAILED...', error);
+      })
+    });
+  }
+
+  // $("#contact-form").submit(function() { //Change
+	// 	var th = $(this);
+  //   // get form data
+  //   var formData = new FormData($(this)[0]);
+  //   console.log(formData);
+  //   return false;
+
+		// $.ajax({
+		// 	type: "POST",
+		// 	url: "mail.php", //Change
+		// 	data: th.serialize()
+		// }).done(function() {
+    //   $('.contact').find('.form').addClass('is-hidden');
+    //   $('.contact').find('.reply-group').addClass('is-visible');
+		// 	setTimeout(function() {
+		// 		// Done Functions
+    //     $('.contact').find('.reply-group').removeClass('is-visible');
+    //     $('.contact').find('.form').delay(300).removeClass('is-hidden');
+		// 		th.trigger("reset");
+		// 	}, 5000);
+		// });
+		// return false;
+	// });
   // --------------------------------------------- //
   // Contact Form End
   // --------------------------------------------- //
@@ -843,5 +841,9 @@ $(function() {
   // --------------------------------------------- //
   // ParticlesJS Backgrounds End
   // --------------------------------------------- //
+
+  function notifyOnEmail() {
+
+  }
 
 });
